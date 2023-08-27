@@ -1,0 +1,44 @@
+{% load static %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href=" {% static '/css/main.css' %}" >
+<link rel="website icon" type="png" href="{% static '/images/book-stack.png'%}" >
+{% include 'bookstore/navbar_all.html' %}
+
+{%block conntnt %}
+
+<div style="margin-bottom:30px" >
+  
+<form method="POST"  action="" >
+  {% comment %} <span class="border border-danger">zrsre r srrs stt s</span> {% endcomment %}
+  {% if  msg == "invalid" %}
+    <div class="text-center bg-danger text-white bg-opacity-25 border border-danger p-2"> invalid Recaptcha please try again ! </div>
+  {% endif %}
+  <h1 style="color:white">Register</h1>
+  {% csrf_token %}
+  <h5 class="text-white">UserName</h5>
+  {{form.username}}<br>
+  <h5 class="text-white">Email</h5>
+  {{form.email}}<br>
+
+  <h5 class="text-white">Password</h5>
+  {{form.password1}}<br>
+
+  <h5 class="mt-2 text-white">Cnfermation Password</h5>
+  {{form.password2}}<br>
+
+  <div style="color:red">{{form.errors}}</div>
+  <br>
+  {% comment %} Recaptcha {% endcomment %}
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <div class="g-recaptcha" data-sitekey="6LcTqtcnAAAAAKDvX3CQWjbZMxD7IzzdGuROaPoA"  ></div>
+
+  <br>
+  <a href="{% url 'login' %}" class="mt-2">Login page</a>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</from>   
+</div>
+
+
+{%endblock%}
+{% include 'bookstore/footer.html' %}

@@ -1,0 +1,99 @@
+{% extends 'bookstore/main.html' %}
+{% load static %}
+
+{% block conntnt %}
+<h1 class="p-5">customer</h1>
+<div class="container pb-5">
+  <div class="row">
+      <div class="col-3">
+        
+        <h6 class="card-subtitle mb-2 text-body-secondary"><a class="btn btn-success"  href="{% url 'create' customer.id %}" >Creat Order</a></h6>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- ######################## -->
+<table class="cj">
+  <tr>
+    <th></th>
+    <th scope="col">Type</th>
+    <th scope="col">Data</th>
+  </tr>
+
+  <tr>
+    <td>1</td>
+    <td>Name </td>
+    <td>{{customer.name}}</td>
+  </tr>
+
+  <tr>
+    <td>2</td>
+    <td>Email</td>
+    <td>{{customer.email}}</td>
+  </tr>
+    
+  <tr>
+    <td>3</td>
+    <td>Age</td>
+    <td>{{customer.age}}</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Phone</td>
+    <td>{{customer.phone}}</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Number orders</td>
+    <td>{{number_orders}}</td>
+  </tr>
+</table>
+
+
+<div class="d-flex">
+<form class="" role="search" style="width: 100rem;" method="get">
+    {% csrf_token %}
+    <label>Book</label>
+    {{ myfilter.form.book }}
+    <label>Status</label>
+    {{ myfilter.form.status }}
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
+</div>
+<hr>
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Book </th>
+        <th scope="col">category</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for i in order %}  
+      <tr>
+        <td>{{i.book}}</td>
+        <td>{{i.book.category}}</td>
+        <td>{{i.date_created}}</td>
+        <td>{{i.status}}</td>
+        <td>
+          <a  href="{% url 'update' i.id %}"><i class="bi bi-arrow-repeat"></i></a>
+          <a class="text-danger" href="{% url 'delete' i.id%}"><i class="bi bi-trash3"></i></a>
+        </td>
+      </tr>
+      {% endfor %}
+     
+    </tbody>
+  </table>
+</div>  
+{% endblock conntnt %}
+

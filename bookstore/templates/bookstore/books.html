@@ -1,0 +1,67 @@
+
+{% extends 'bookstore/main.html' %}
+
+{% load static %}
+{% block conntnt %}
+<h1 class="p-5">Books</h1>
+<span class="placeholder col-12 bg-dark"></span>
+
+<div class="container">
+  <table class="table table-bordered border-primary">
+    
+    <thead style="
+    
+        color=red;
+    
+    ">
+      <tr>
+        
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Author</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for item in books %}
+        <tr>
+          
+           
+          <td>{{item.name}}</td>
+          <td>{{item.price}}$</td>
+          <td>{{item.author}}</td>
+        
+        </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+  {%if request.user.is_staff %}
+    <h6 class="card-subtitle mb-2 text-body-secondary"><a class="btn btn-success"  href="{% url 'addbook' %}">Add book</a></h6>
+  {%endif%}
+
+</div>
+
+<hr>
+<div class="container d-flex flex-wrap  g-20">
+{% for b in books %}
+
+  <div class="card m-5" style="width:20rem;">
+
+    {% if b.avatar %}
+      <img src="{{ b.avatar.url }}" class="card-img-top " height="350px" alt="...">
+    {% else %}
+       <img src="{%  static 'images/book_def.png'%}" class="card-img-top" height="350px"  style="width:20rem;"  alt="...">
+    {% endif %}
+    
+  
+  
+  <div class="card-body">
+    <h5 class="card-title">{{b.name}}</h5>
+  </div>
+  </div>
+{% endfor %}
+</div>
+
+{% endblock conntnt %}
+
+

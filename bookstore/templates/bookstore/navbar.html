@@ -1,0 +1,54 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="
+   background-color: red ;
+
+">
+    <div>
+      <a href="#" target="_blank" class="" style="margin-left:10px">
+        <!--<i class="bi bi-info-square"></i></a>-->
+        <image src="{% static 'images/icons8-alpha-67.png' %}" width"40" height="40">
+       </a>
+    </div>  
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if request.user.is_staff%}
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
+          </li>
+          
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'profile_info'%}">Profile Info</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'books'%}">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout'%}" style="color:red">Logout</a>
+          </li>
+        </ul>
+        {% comment %}  {% endcomment %}
+        <div style="display:flex;margin-bottom:20px ;margin-right:10px;margin-top:10px">
+          {% if request.user.customer.avatar %}
+          <img src="{{ request.user.customer.avatar.url }}" width="30" height="30" class="rounded-circle">
+          {% else %}
+          <img src="{% static 'images/user.png'%}" width="30" height="30" class="rounded-circle">
+          {% endif %}
+      
+        </div>
+        <div style="display:flex;">
+            <p class="nav-link" href="#" style="color:#11334;margin-top:10px;font-weight: bold;" >{{request.user}}</p>
+        </div>
+        {% if request.user.is_staff%}
+            <h5 class="text-danger mx-5 mt-0 fs-6">Admin</h5>          
+        {% endif %}
+      </div>
+    </div>
+  </nav>

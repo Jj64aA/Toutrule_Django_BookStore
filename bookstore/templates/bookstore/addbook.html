@@ -1,0 +1,29 @@
+{% extends 'bookstore/main.html' %} 
+{% load static %}
+{%block conntnt %}
+
+<!-- add -->
+<div class="pb-5">
+    <form class="pb-5" action="" method="POST" enctype="multipart/form-data" >
+       {% csrf_token %}
+       <h5> Name Book :</h5>
+       {{form.name}}
+       <h5> Author : </h5>
+       {{form.author}}
+       <h5> Price : </h5>
+       {{form.price}}
+       <h5> Category : </h5>
+       {{form.category}}
+       <h5> Description : </h5>
+       {{form.description}}
+       <h5> Tags : </h5>
+       {{form.tags}}
+       <h5> Image : </h5>
+       {{form.avatar}}
+       <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+{%endblock%}

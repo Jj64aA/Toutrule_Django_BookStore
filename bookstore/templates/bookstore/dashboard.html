@@ -1,0 +1,166 @@
+
+{% extends 'bookstore/main.html' %}
+
+
+{% block conntnt %}
+<h1 class="p-5">Dashbord </h1>
+
+
+<!--<span class="placeholder col-12 bg-dark"></span>-->
+
+<div class="container pb-5">
+  <div class="row">
+    <div class="col">
+      Totel Order : <span class="badge text-bg-primary">{{t_orders}}</span>
+    </div>
+    <div class="col">
+      Pending : <span class="badge text-bg-danger">{{p_orders}}</span>
+    </div>
+    <div class="col">
+      Delivered : <span class="badge text-bg-success">{{d_orders}}</span>
+    </div>
+    <div class="col">
+      in progress : <span class="badge text-bg-warning">{{in_orders}}</span>
+    </div>
+    <div class="col">
+      out of order : <span class="badge text-bg-secondary">{{out_orders}}</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<span class="placeholder col-12 bg-dark"></span>
+
+
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+         <div class="card" >
+            <div class="card-body">
+              <h5 class="card-title">Customers</h5>
+              <table class="table">
+    
+                  <thead>
+                     <tr>
+                    
+                         <th scope="col">Name</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Age</th>
+                          <th scope="col">Show </th>
+                     </tr>
+                  </thead>
+                   <tbody>
+                         {% for item in customers %}
+                            <tr>
+                      
+                       
+                              <td>{{item.name}}</td>
+                              <td>{{item.email}}</td>
+                              {% if item.age  == "15" or item.age  == "16" or item.age  == "17" or item.age  == "14" or item.age  == "13" %}
+                                <td><span class="badge text-bg-info">{{item.age}}</span></td>
+                              {% else %}
+                                <td>{{item.age}}</td>
+                              {% endif %}
+                              
+                              <td><a  href="{% url 'customer' item.id %}"><i class="bi bi-eye"></i></a></td>
+                           </tr>
+                           {% endfor %}
+                           
+        
+                           
+                    </tbody>
+              </table>
+             
+            </div>
+          </div>
+      </div>
+      <div class="col">
+         <div class="card" >
+            <div class="card-body">
+              <h5 class="card-title">Orders</h5>
+              
+              <table class="table">
+    
+                <thead>
+                   <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Book</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                   </tr>
+                </thead>
+                 <tbody>
+                       {% for item in orders %}
+                          <tr>
+                    
+                            <td>{{item.date_created}}</td>
+                            <td>{{item.customer}}</td>
+                            
+                            <td>{{item.book}}</td>
+                            {% if item.status == "out of order"%}
+                                <td><h6>{{item.status}}</h6></td>
+                            {% else %}
+                                <td>{{item.status}}</td>
+                            {% endif%}
+                            <td>
+                               <a  href="{% url 'update' item.id %}"><i class="bi bi-arrow-repeat"></i></a>
+                               <a class="text-danger" href="{% url 'delete' item.id%}"><i class="bi bi-trash3"></i></a>
+                               
+                            </td>
+                  
+                         </tr>
+                         {% endfor %}
+                
+                  </tbody>
+            </table>
+             
+            </div>
+          </div>
+      </div>
+    </div>
+    {% comment %} <div class="row pt-5">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+      </div> {% endcomment %}
+      
+      {% comment %} <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+      </div> {% endcomment %}
+      
+    </div>
+  </div>
+
+
+{% endblock conntnt %}
+
+
+
+
+
+

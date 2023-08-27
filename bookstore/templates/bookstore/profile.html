@@ -1,0 +1,56 @@
+
+{% extends 'bookstore/main.html' %}
+
+
+{% block conntnt %}
+<h1 class="p-5">Profile</h1>
+<hr>
+
+<div class="container pb-5">
+   <div class="row">
+     <div class="col">
+       Totel Order : <span class="badge text-bg-primary">{{t_orders}}</span>
+     </div>
+     <div class="col">
+       Pending : <span class="badge text-bg-danger">{{p_orders}}</span>
+     </div>
+     <div class="col">
+       Delivered : <span class="badge text-bg-success">{{d_orders}}</span>
+     </div>
+     <div class="col">
+       in progress : <span class="badge text-bg-warning">{{in_orders}}</span>
+     </div>
+     <div class="col">
+       out of order : <span class="badge text-bg-secondary">{{out_orders}}</span>
+     </div>
+   </div>
+ </div>
+<hr>
+<div class="container">
+   <h4 class="pl-5">My orders</h4>
+   <table class="table">
+       <thead>
+         <tr>
+           
+           <th scope="col">Book </th>
+           <th scope="col">category</th>
+           <th scope="col">Date</th>
+           <th scope="col">Status</th>
+         </tr>
+       </thead>
+       <tbody>
+         {%for i in orders %}  
+         <tr>
+           <td>{{i.book}}</td>
+           <td>{{i.book.category}}</td>
+           <td>{{i.date_created}}</td>
+           <td>{{i.status}}</td>
+         </tr>
+         {% endfor %}
+        
+       </tbody>
+     </table>
+   </div> 
+{% endblock conntnt %}
+
+

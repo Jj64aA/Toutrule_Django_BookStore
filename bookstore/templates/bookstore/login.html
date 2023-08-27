@@ -1,0 +1,35 @@
+{% load static %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href=" {% static '/css/main.css' %}" >
+<link rel="website icon" type="png" href="{% static '/images/book-stack.png'%}" >
+{% include 'bookstore/navbar_all.html' %}
+
+{%block conntnt %}
+
+{% for msg in messages%}
+<p style="
+    text-align: center; 
+    margin-top: 5px;
+    color: #343a40;
+">{{msg}}</p>
+{% endfor %}
+
+{% comment %} --------------------------- {% endcomment %}
+<div style="margin-bottom:30px">
+<form method="POST"  action="" >
+  <h1 class="text-white">Login</h1>
+  {% csrf_token %}
+  <h5 class="text-white">UserName</h5>
+  <input type="text" name="username">
+  <h5 class="text-white">Password</h5>
+  <input type="password" name="password">
+  <br>
+  <br>
+  <a href="{% url 'register' %}">Create account</a>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</from>   
+</div> 
+{% comment %} --------------------------- {% endcomment %}
+{%endblock%}
+{% include 'bookstore/footer.html' %}

@@ -1,0 +1,80 @@
+{% extends 'bookstore/main.html' %} 
+{% load static %}
+{%block conntnt %}
+<!--
+ <div class="pb-5">
+    <form class="pb-5" action="" method="POST">
+       {% csrf_token %}
+       
+       {% for item in form %}
+          {{ item }} <br>
+       {% endfor %}
+       <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div class="pb-5">
+   {% if form %}
+       <form class="pb-5" action="" method="POST">
+          {% csrf_token %}
+          {% for field in form %}
+              {{ field }} <br>
+          {% endfor %}
+          <button type="submit" class="btn btn-primary">Submit</button>
+       </form>
+   {% endif %}
+
+   
+</div>
+-->
+
+ {% if formset %}
+<div class="card"  > 
+   <div class="card-body">
+   
+   <form action="" method="POST">
+   {% csrf_token %}
+   {{ formset.management_form }}
+   {% for item in  formset %}
+   {{item}} <br>
+   {% endfor %}
+   <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+ 
+   </div>
+ </div>
+{%endif%} 
+
+{% if form %}
+<div class="card"  > 
+   <div class="card-body">
+   
+   <form action="" method="POST">
+   {% csrf_token %}
+   {{ formset.management_form }}
+   {% for item in  form %}
+   {{item}} <br>
+   {% endfor %}
+   <h5>{{form.book}}</h5>
+   <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+ 
+   </div>
+ </div>
+{%endif%} 
+
+{%endblock%}
+
+<!--
+
+   {% if formset %}
+       <form class="pb-5" action="" method="POST">
+          {% csrf_token %}
+          {% for item in formset %}
+                  {{ item }} <br>
+          {% endfor %}
+          <button type="submit" class="btn btn-primary">Submit</button>
+       </form>
+   {% endif %}
+   
+-->
