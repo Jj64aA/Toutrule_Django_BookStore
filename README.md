@@ -3,7 +3,7 @@
  This project involves the creation of a web application leveraging the powerful Django   framework. The primary objective of this endeavor is to offer users an engaging platform   through which a curated collection of books is showcased. A pivotal feature of the   application lies in its user registration system.
 </p>
 <br>
-<img  src="book-1.png" style="width:100%;height:60%">
+<img  src="image app/book-1.png" style="width:100%;height:60%">
 <br>
 <img  src="book-2.png" style="width:100%;height:60%">
 <br>
