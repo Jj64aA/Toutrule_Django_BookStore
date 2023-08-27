@@ -1,0 +1,1 @@
+let myrecaptcha = document.querySelector("g-recaptcha")
