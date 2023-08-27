@@ -5,16 +5,16 @@
 <br>
 <img  src="image app/book-1.png" style="width:100%;height:60%">
 <br>
-<img  src="book-2.png" style="width:100%;height:60%">
+<img  src="image app/book-2.png" style="width:100%;height:60%">
 <br>
-<img  src="book-3.png" style="width:100%;height:60%">
+<img  src="image app/book-3.png" style="width:100%;height:60%">
 <br>
-<img  src="book-4.png" style="width:100%;height:60%">
+<img  src="image app/book-4.png" style="width:100%;height:60%">
 <br>
-<img  src="book-5.png" style="width:100%;height:60%">
+<img  src="image app/book-5.png" style="width:100%;height:60%">
 <br>
-<img  src="book-6.png" style="width:100%;height:60%">
+<img  src="image app/book-6.png" style="width:100%;height:60%">
 <br>
-<img  src="book-7.png" style="width:100%;height:60%">
+<img  src="image app/book-7.png" style="width:100%;height:60%">
 <br>
-<img  src="book-8.png" style="width:100%;height:60%">
+<img  src="image app/book-8.png" style="width:100%;height:60%">
